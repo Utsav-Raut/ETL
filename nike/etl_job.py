@@ -1,5 +1,4 @@
-import nike.dependencies
-from nike.dependencies.spark import start_spark
+from dependencies.spark import start_spark
 def main():
     """Main ETL script definition.
     :return: None
@@ -24,9 +23,10 @@ def main():
 
 def extract_data(spark):
     """Load data from Hive table"""
-
+    # spark.sql("show databases").show()
+    spark.sql("use mock1") # This is a hive table
     df = spark.sql(
-
+        "select * from person"
     )
     df.show()
     return df
