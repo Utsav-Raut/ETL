@@ -1,4 +1,5 @@
 from dependencies.spark import start_spark
+from utils.aggregate_ops import get_agg_result
 def main():
     """Main ETL script definition.
     :return: None
@@ -28,18 +29,23 @@ def extract_data(spark):
     df = spark.sql(
         "select * from person"
     )
-    df.show()
+    # df.show()
     return df
 
 def transformed_data(df):
     "Transform the original data set"
 
-    df_transformed = df
+    # df_transformed = df.select("Firstname")
+    # df_transformed = df.filter(df.Lastname == "Arrow")
+    # df_transformed = df.agg({column_name: operation})
+    column_name = 'Salary'
+    operation = 'stddev'
+    df_transformed = get_agg_result(df, column_name, operation)
 
     return df_transformed
 
 def load_data(df):
-    pass
+    df.show()
 
 # Entry point for PySpark ETL application
 if __name__ == '__main__':
