@@ -1,5 +1,6 @@
 from dependencies.spark import start_spark
 from utils.aggregate_ops import get_agg_result
+from pyspark.sql.types import DoubleType, IntegerType
 def main():
     """Main ETL script definition.
     :return: None
@@ -14,7 +15,7 @@ def main():
 
     # Execute ETL pipeline
     data = extract_data(spark)
-    data_transformed = transformed_data(data)
+    data_transformed = transformed_data(data, spark)
     load_data(data_transformed)
 
     # log the success and terminate the spark session
@@ -32,17 +33,19 @@ def extract_data(spark):
     # df.show()
     return df
 
-def transformed_data(df):
+def transformed_data(df,spark):
     "Transform the original data set"
 
     # df_transformed = df.select("Firstname")
     # df_transformed = df.filter(df.Lastname == "Arrow")
     # df_transformed = df.agg({column_name: operation})
     column_name = 'Salary'
-    operation = 'stddev'
-    df_transformed = get_agg_result(df, column_name, operation)
-
+    # operation = 'stddev'
+    
+    df_transformed = get_agg_result(df, column_name).collect()
     return df_transformed
+    #https://stackoverflow.com/questions/43444925/how-to-create-dataframe-from-list-in-spark-sql/43445139
+    #create dataframe from list in pyspark
 
 def load_data(df):
     df.show()
