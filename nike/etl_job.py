@@ -14,8 +14,8 @@ def main():
     log.warn('etl_job is up-and-running')
 
     # Execute ETL pipeline
-    data = extract_data(spark)
-    data_transformed = transformed_data(data, spark)
+    data = extract_data(spark, config['db_name'], config['table_name'])
+    data_transformed = transformed_data(data, spark, config['column_name'])
     load_data(data_transformed)
 
     # log the success and terminate the spark session
@@ -23,32 +23,31 @@ def main():
     spark.stop()
     return None
 
-def extract_data(spark):
+def extract_data(spark, db_name, table_name):
     """Load data from Hive table"""
     # spark.sql("show databases").show()
-    spark.sql("use mock1") # This is a hive table
+    spark.sql("use {0}".format(db_name)) # This is a hive db
     df = spark.sql(
-        "select * from person"
+        "select * from {0}".format(table_name)
     )
     # df.show()
     return df
 
-def transformed_data(df,spark):
+def transformed_data(df, spark, column_name):
     "Transform the original data set"
 
     # df_transformed = df.select("Firstname")
     # df_transformed = df.filter(df.Lastname == "Arrow")
     # df_transformed = df.agg({column_name: operation})
-    column_name = 'Salary'
+    # column_name = 'Salary'
     # operation = 'stddev'
     
-    df_transformed = get_agg_result(df, column_name).collect()
+    df_transformed = get_agg_result(df, column_name)
     return df_transformed
-    #https://stackoverflow.com/questions/43444925/how-to-create-dataframe-from-list-in-spark-sql/43445139
-    #create dataframe from list in pyspark
 
 def load_data(df):
-    df.show()
+    for data in df:
+        data.show()
 
 # Entry point for PySpark ETL application
 if __name__ == '__main__':

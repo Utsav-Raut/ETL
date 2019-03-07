@@ -1,0 +1,5 @@
+{
+    "db_name": "mock1",
+    "table_name":"person",
+    "column_name": "Salary"
+}
