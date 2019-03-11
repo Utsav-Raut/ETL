@@ -1,5 +1,9 @@
 {
     "db_name": "mock1",
     "table_name":"person",
-    "column_name": "Salary"
+    "column_with_agg_func": [["salary", "max"], ["Expense_Amt", "stddev"]],
+    "field_name":"salary",
+    "column_to_retrieve_after_null_check": "firstname",
+    "columns_to_check_for_null": ["lastname", "salary"],
+    "check_type": "not null"
 }
