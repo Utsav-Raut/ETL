@@ -1,9 +1,10 @@
 {
     "db_name": "mock1",
-    "table_name":"person",
-    "column_with_agg_func": [["salary", "max"], ["Expense_Amt", "stddev"]],
-    "field_name":"salary",
-    "column_to_retrieve_after_null_check": "firstname",
-    "columns_to_check_for_null": ["lastname", "salary"],
+    "table_name":"demo_table",
+    "file_path": "/home/boom/Documents/Programming/nike_stuff/json_files",
+    "column_with_agg_func": [["notifications[0].POSLog.Transaction.TransactionAmt", "max", "min", "count"]],
+    "field_name":"notifications.POSLog.Transaction.TransactionID",
+    "column_to_retrieve_after_null_check": "notifications.POSLog.Transaction.TransactionID",
+    "columns_to_check_for_null": ["notifications.POSLog.Transaction.ZipCode"],
     "check_type": "not null"
 }
