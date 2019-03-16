@@ -2,7 +2,7 @@
     "db_name": "mock1",
     "table_name":"demo_table",
     "file_path": "/home/boom/Documents/Programming/nike_stuff/json_files",
-    "column_with_agg_func": [["notifications[0].POSLog.Transaction.TransactionAmt", "max", "min", "count"]],
+    "column_with_agg_func": [["notifications.POSLog.Transaction.TransactionAmt", "max", "min", "stddev", "count"]],
     "field_name":"notifications.POSLog.Transaction.TransactionID",
     "column_to_retrieve_after_null_check": "notifications.POSLog.Transaction.TransactionID",
     "columns_to_check_for_null": ["notifications.POSLog.Transaction.ZipCode"],

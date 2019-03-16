@@ -44,7 +44,7 @@ def transformed_data(df, spark, column_with_agg_func, table_name, field_name,
     row_count_diff, result, hive_tbl_row_count, input_file_row_count = get_row_count_diff(spark, df, field_name, table_name, file_path)
     print(row_count_diff)
     print(result)
-    agg_output = get_agg_result(df, column_with_agg_func)
+    agg_output = get_agg_result(df, spark, table_name, column_with_agg_func)
     print(agg_output)
     # list_of_col_values_after_null_check = check_data_quality(spark, df, table_name, column_to_retrieve_after_null_check, columns_to_check_for_null, check_type)
     # for x in list_of_col_values_after_null_check:
