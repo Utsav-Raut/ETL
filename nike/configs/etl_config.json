@@ -6,5 +6,6 @@
     "field_name":"notifications.POSLog.Transaction.TransactionID",
     "column_to_retrieve_after_null_check": "notifications.POSLog.Transaction.TransactionID",
     "columns_to_check_for_null": ["notifications.POSLog.Transaction.ZipCode"],
-    "check_type": "not null"
+    "check_type": "not null",
+    "fields_to_compare": ["notifications.POSLog.Transaction.TransactionID", "notifications.POSLog.Transaction.TransactionAmt"]
 }

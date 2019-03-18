@@ -1,0 +1,6 @@
+https://subscriptions.get.all-01120	[{"poslog":{"transaction":{"businessdaydate":"11-05-2019","transactionid":"a4178-58749-a01523-55847","transactionamt":65000.0,"zipcode":"100020"}}}]
+https://go-library.set.120	[{"poslog":{"transaction":{"businessdaydate":"21-11-2017","transactionid":"nhhya8-58249-a01523-a14a5","transactionamt":52000.0,"zipcode":"60020"}}}]
+https://ball.rusev.all-01120	[{"poslog":{"transaction":{"businessdaydate":"11-05-2019","transactionid":"jahsdj-58749-a01523-55847","transactionamt":95000.0,"zipcode":null}}}]
+https://cool-goat.post.20	[{"poslog":{"transaction":{"businessdaydate":"21-11-2017","transactionid":"25874-58249-a01523-a14a5","transactionamt":105000.0,"zipcode":null}}}]
+https://sushi.get.com	[{"poslog":{"transaction":{"businessdaydate":"11-05-2019","transactionid":"asd145-58749-a01523-55847","transactionamt":225000.0,"zipcode":null}}}]
+https://fish-wyatt.set	[{"poslog":{"transaction":{"businessdaydate":"21-11-2017","transactionid":"nhnnh-58249-a01523-a14a5","transactionamt":61000.0,"zipcode":"5420"}}}]

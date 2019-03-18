@@ -9,6 +9,7 @@ def generate_report(data, table_name):
     input_file_row_count = data[3]
     aggregate_result = data[4] 
     null_check_data = data[5]
+    comp_data = data[6]
 
     with open("D:/Users/URaut/Desktop/Agg_Results.csv", "w") as csvfile:
         fieldnames = ['Table', 'Column', 'Agg_Func', 'Agg_Val']
@@ -39,7 +40,8 @@ def generate_report(data, table_name):
                     # print("{0} columns's value is {1}".format(col_name, val))
                     writer.writerow({'Column_Values': col_values[val]})
 
-
-    
-    
-    
+    with open("D:/Users/URaut/Desktop/Compare_Results.csv", "w") as csvfile:
+        fieldnames = ['TransactionID', 'Table_data', 'File_data']
+        write = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=',')
+        writer.writeheader()
+        for result in comp_data:
